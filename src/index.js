@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 class Counter extends React.Component{
@@ -16,4 +16,14 @@ class Counter extends React.Component{
   }
 }
 
-ReactDOM.render(<Counter />, document.getElementById('root'))
+function FunCounter(props) {
+  let [count, setCount] = useState({number: 0})
+  return (
+    <div>
+      <p>{count.number}</p>
+      <button onClick={() => setCount({number: count.number + 1})}>+</button>
+    </div>
+  )
+}
+
+ReactDOM.render(<FunCounter />, document.getElementById('root'))
